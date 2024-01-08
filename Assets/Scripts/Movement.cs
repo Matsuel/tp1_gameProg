@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public int speed=5;
+    public int speed=10;
     public float maxX=10.2f;
     public float minX=-10.2f;
     public float maxY=4.5f;
