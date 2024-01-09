@@ -21,15 +21,23 @@ public class SpawnBigmac : MonoBehaviour
             float randomScale = Random.Range(0.7f, 2.0f);
             newBigmac.transform.localScale = new Vector2(randomScale, randomScale);
             newBigmac.GetComponent<Rigidbody>().mass = randomScale;
+            newBigmac.AddComponent<BoxCollider>();
             bigmacs.Add(newBigmac);
+
+            List<GameObject> bigmacsToRemove = new List<GameObject>();
 
             foreach (GameObject bigmac in bigmacs)
             {
                 if (bigmac.transform.position.y < -4.5)
                 {
-                    bigmacs.Remove(bigmac);
+                    bigmacsToRemove.Add(bigmac);
                     Destroy(bigmac);
                 }
+            }
+
+            foreach (GameObject bigmac in bigmacsToRemove)
+            {
+                bigmacs.Remove(bigmac);
             }
         }
     }
