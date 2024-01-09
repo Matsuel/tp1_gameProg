@@ -238,6 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnBigMac: {fileID: 8718754584062245779, guid: 56c3bca35fe0ec84c95968e5d45e1838, type: 3}
+  period: 0.5
 --- !u!4 &1104592612
 Transform:
   m_ObjectHideFlags: 0
@@ -287,6 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnBigMac: {fileID: 8718754584062245779, guid: 56c3bca35fe0ec84c95968e5d45e1838, type: 3}
+  period: 0.5
 --- !u!54 &1244272401
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -382,7 +384,7 @@ Transform:
   m_GameObject: {fileID: 1325995320}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 3.1, z: 1}
+  m_LocalScale: {x: 0.7, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -501,7 +503,7 @@ Transform:
   m_GameObject: {fileID: 1565230582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
