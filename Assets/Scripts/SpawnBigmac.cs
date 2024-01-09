@@ -6,7 +6,7 @@ public class SpawnBigmac : MonoBehaviour
 {
     public GameObject spawnBigMac;
     private float nextActionTime = 0.0f;
-    public float period = 0.5f;
+    public float period = 1.0f;
     private List<GameObject> bigmacs = new List<GameObject>();
 
     // Update is called once per frame
