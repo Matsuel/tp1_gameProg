@@ -21,7 +21,9 @@ public class SpawnBigmac : MonoBehaviour
             float randomScale = Random.Range(0.7f, 2.0f);
             newBigmac.transform.localScale = new Vector2(randomScale, randomScale);
             newBigmac.GetComponent<Rigidbody>().mass = randomScale;
-            newBigmac.AddComponent<BoxCollider>();
+            BoxCollider boxCollider = newBigmac.AddComponent<BoxCollider>();
+            boxCollider.size = new Vector2(1.0f, 1.0f);
+            newBigmac.tag = "Asteroides";
             bigmacs.Add(newBigmac);
 
             List<GameObject> bigmacsToRemove = new List<GameObject>();
