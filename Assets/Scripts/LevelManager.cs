@@ -12,6 +12,10 @@ public class LevelManager : MonoBehaviour
         {
             LoadScene();
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
     
     void LoadScene()
