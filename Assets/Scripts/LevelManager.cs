@@ -20,6 +20,6 @@ public class LevelManager : MonoBehaviour
     
     void LoadScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
     }
 }

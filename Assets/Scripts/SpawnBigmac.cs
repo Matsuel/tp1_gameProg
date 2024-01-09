@@ -1,21 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// using Asteroides = Asteroides;
 
 public class SpawnBigmac : MonoBehaviour
 {
-    public GameObject spawnBigMac;
-    private float nextActionTime = 0.0f;
+    public GameObject bigMac;
+    public float nextActionTime = 0.0f;
     public float period = 1.0f;
-    private List<GameObject> bigmacs = new List<GameObject>();
+    public List<GameObject> bigmacs = new List<GameObject>();
+    public List<GameObject> bigmacsToRemove = new List<GameObject>();
+    public bool canSpawn = true;
+
+    private float currentTime;
+
+    void Start()
+    {
+        foreach (GameObject burger in GameObject.FindGameObjectsWithTag("Asteroides"))
+        {
+                Destroy(burger);
+                bigmacs.Remove(burger);
+        }
+        currentTime = 0.0f;
+        nextActionTime = 0.0f;
+        bigmacsToRemove.Clear();
+        period = 1.0f;
+        bigmacs.Clear();
+        canSpawn = true;
+        StartCoroutine(SpawnAst());
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > nextActionTime)
+        foreach (GameObject bigmac in bigmacs)
         {
-            nextActionTime += period;
-            GameObject newBigmac = Instantiate(spawnBigMac);
+            if (bigmac.transform.position.y < -4.5)
+            {
+                bigmacsToRemove.Add(bigmac);
+                Destroy(bigmac);
+            }
+        }
+
+        foreach (GameObject bigmac in bigmacsToRemove)
+        {
+            bigmacs.Remove(bigmac);
+        }
+    }
+
+    IEnumerator SpawnAst() {
+        while (canSpawn)
+        {
+            yield return new WaitForSeconds(0.4f);
+            GameObject newBigmac = Instantiate(bigMac);
             newBigmac.AddComponent<Rigidbody>();
             newBigmac.transform.position = new Vector2(Random.Range(-10.2f, 10.2f), 6.0f);
             float randomScale = Random.Range(0.7f, 2.0f);
@@ -23,24 +60,7 @@ public class SpawnBigmac : MonoBehaviour
             newBigmac.GetComponent<Rigidbody>().mass = randomScale;
             BoxCollider boxCollider = newBigmac.AddComponent<BoxCollider>();
             boxCollider.size = new Vector2(1.0f, 1.0f);
-            newBigmac.tag = "Asteroides";
             bigmacs.Add(newBigmac);
-
-            List<GameObject> bigmacsToRemove = new List<GameObject>();
-
-            foreach (GameObject bigmac in bigmacs)
-            {
-                if (bigmac.transform.position.y < -4.5)
-                {
-                    bigmacsToRemove.Add(bigmac);
-                    Destroy(bigmac);
-                }
-            }
-
-            foreach (GameObject bigmac in bigmacsToRemove)
-            {
-                bigmacs.Remove(bigmac);
-            }
         }
     }
 }
