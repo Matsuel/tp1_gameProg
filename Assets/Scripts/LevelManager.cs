@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
+
 public class LevelManager : MonoBehaviour
 {
     // Update is called once per frame
@@ -14,7 +18,11 @@ public class LevelManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            #if UNITY_EDITOR
+                EditorApplication.isPlaying = false;
+            #else
+                Application.Quit();
+            #endif
         }
     }
     
