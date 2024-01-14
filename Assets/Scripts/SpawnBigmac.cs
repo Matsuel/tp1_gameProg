@@ -57,7 +57,8 @@ public class SpawnBigmac : MonoBehaviour
             newBigmac.transform.position = new Vector2(Random.Range(-10.2f, 10.2f), 6.0f);
             float randomScale = Random.Range(0.7f, 2.0f);
             newBigmac.transform.localScale = new Vector2(randomScale, randomScale);
-            newBigmac.GetComponent<Rigidbody>().mass = randomScale;
+            newBigmac.GetComponent<Rigidbody>().mass = Random.Range(0.5f, 4.0f);
+            newBigmac.GetComponent<Rigidbody>().velocity =new Vector2(Random.Range(-2.0f, 2.0f), Random.Range(-2.0f, -4.0f));
             BoxCollider boxCollider = newBigmac.AddComponent<BoxCollider>();
             boxCollider.size = new Vector2(1.0f, 1.0f);
             bigmacs.Add(newBigmac);
