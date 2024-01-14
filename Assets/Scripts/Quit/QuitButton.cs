@@ -8,7 +8,7 @@ using UnityEditor;
 
 public class QuitButton : MonoBehaviour
 {
-    public void doExitGame() 
+    public void doExitGame()
     {
         #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
