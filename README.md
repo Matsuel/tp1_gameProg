@@ -11,7 +11,9 @@ Le jeu consiste à faire passer un vaissau spatial à travers des météorites, 
 - Rejouer après avoir perdu
 - Quitter le jeu
 - Gestions des collisions
+- Boost de vitesse (en appuyant sur la shift)
+- Orientation du vaisseau en fonction de la direction de déplacement
 
 ## Crédit
 
-Jeu réalisé par [Matsuel](https://www.github.com/Matsuel) et [Lytzeer](https://www.github.com/Lytzeer)
+Jeu réalisé par [Matsuel](https://www.github.com/Matsuel), [Lytzeer](https://www.github.com/Lytzeer) et [DoctorPok](https://www.github.com/DoctorPok42)
