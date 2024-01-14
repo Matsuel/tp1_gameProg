@@ -22,14 +22,15 @@ public class Movement : MonoBehaviour
 
         Vector2 move = new Vector2(moveX, moveY);
 
-        transform.Translate(move * Time.deltaTime * speed);
+        if (move != Vector2.zero)
+        {
+            transform.up = move;
+            transform.Translate(Vector2.up * speed * Time.deltaTime);
+        }
 
         Vector2 position = transform.position;
         position.x = Mathf.Clamp(position.x, minX, maxX);
         position.y = Mathf.Clamp(position.y, minY, maxY);
         transform.position = position;
-
-        float angle = Mathf.Atan2(move.y, move.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
     }
 }
