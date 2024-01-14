@@ -16,7 +16,6 @@ public class Movement : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         float moveX = Input.GetAxis("Horizontal");
@@ -24,12 +23,16 @@ public class Movement : MonoBehaviour
 
         Vector2 move = new Vector2(moveX, moveY);
 
-        transform.Translate(move * Time.deltaTime* speed);
+        if (move != Vector2.zero)
+        {
+            transform.up = move;
+            transform.Translate(Vector2.up * speed * Time.deltaTime);
+        }
 
-
-        postition.x = Mathf.Clamp(postition.x, minX, maxX);
-        postition.y = Mathf.Clamp(postition.y, minY, maxY);
-        Vector2 postition = transform.position;
+        Vector2 position = transform.position;
+        position.x = Mathf.Clamp(position.x, minX, maxX);
+        position.y = Mathf.Clamp(position.y, minY, maxY);
+        transform.position = position;
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
